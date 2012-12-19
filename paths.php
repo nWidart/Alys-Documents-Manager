@@ -23,7 +23,7 @@
 
 $environments = array(
 
-	'local' => array('http://localhost*', '*.dev'),
+	'local' => array('http://lemmens*', '*.dev'),
 
 );
 
@@ -51,6 +51,8 @@ $paths['storage'] = 'storage';
 // The path to the public directory.
 // --------------------------------------------------------------
 $paths['public'] = 'public';
+
+$paths['upload'] = 'public/uploads';
 
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 // END OF USER CONFIGURATION. HERE BE DRAGONS!
@@ -87,7 +89,7 @@ $paths['public'] = 'public';
                ((((~~              / /'              _.'~bb.--~
                                   ((((          __.-~bb.-~
                                               .'  b .~~
-                                              :bb ,' 
+                                              :bb ,'
                                               ~~~~
 */
 
@@ -122,11 +124,11 @@ foreach ($paths as $name => $path)
 
 /**
  * A global path helper function.
- * 
+ *
  * <code>
  *     $storage = path('storage');
  * </code>
- * 
+ *
  * @param  string  $path
  * @return string
  */
@@ -137,7 +139,7 @@ function path($path)
 
 /**
  * A global path setter function.
- * 
+ *
  * @param  string  $path
  * @param  string  $value
  * @return void

@@ -1,4 +1,8 @@
 <?php
+// A MODIFIER
+//
+define('SITE_PATH', 'http://' . $_SERVER['HTTP_HOST'] . '/adminnico_modern/doc_manager/');
+
 
 return array(
 
@@ -67,7 +71,7 @@ return array(
 	|
 	*/
 
-	'profiler' => false,
+	'profiler' => true,
 
 	/*
 	|--------------------------------------------------------------------------

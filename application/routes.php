@@ -1,6 +1,37 @@
 <?php
 
-Route::get('/', 'documents@index');
+Route::get('/', array(
+	'as' => 'homepage',
+	'uses' => 'home@index'
+));
+Route::get('library', array(
+	'as' => 'docIndex',
+	'uses' => 'documents@index'
+));
+Route::get('library/new', array(
+	'as' => 'new_doc',
+	'uses' => 'documents@new'
+));
+Route::post('library/new', 'documents@new');
+
+Route::get('library/(:num)/edit', array(
+	'as' => 'edit_doc',
+	'uses' => 'documents@edit'
+) );
+Route::get('library/(:num)/edit/(:num)', array(
+	'as' => 'edit_doc_info',
+	'uses' => 'documents@edit_doc'
+) );
+
+Route::post('library/update/(:num)', 'documents@update' );
+
+Route::get('library/(:num)/destroy', array(
+	'as' => 'destroy_doc',
+	'uses' => 'documents@destroy'
+) );
+
+Route::post('library/create', 'documents@create');
+
 
 
 /*

@@ -74,7 +74,7 @@ return array(
 			'username' => 'root',
 			'password' => 'root',
 			'charset'  => 'utf8',
-			'prefix'   => '',
+			'prefix'   => 'tbl_',
 		),
 
 		'pgsql' => array(
@@ -84,7 +84,7 @@ return array(
 			'username' => 'root',
 			'password' => '',
 			'charset'  => 'utf8',
-			'prefix'   => '',
+			'prefix'   => 'tbl_',
 			'schema'   => 'public',
 		),
 
