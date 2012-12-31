@@ -38,3 +38,5 @@ publish
 
 # laravel config files
 config/application.php
+public/uploads/*
+public/uploads
