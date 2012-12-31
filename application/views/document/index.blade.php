@@ -6,7 +6,7 @@ Document Manager | Lemmens.com
 
 @section('content')
 	<div class="row-fluid">
-		<h1>hello world</h1>
+		<a href="{{ URL::to_route('new_doc') }}" class="btn btn-large btn-info">Manage your library</a>
 	</div>
 
 @endsection

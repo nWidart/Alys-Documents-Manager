@@ -11,4 +11,12 @@ class Document extends Eloquent
 	{
 		return $this->has_many_and_belongs_to('Language');
 	}
+
+	public static function getParrentCount( $parrent_id, $category_id, $language_id )
+	{
+		return Document::where_parrent_id( $parrent_id )
+			->where_category_id( $category_id )
+			->where_language_id( $language_id )
+			->count();
+	}
 }

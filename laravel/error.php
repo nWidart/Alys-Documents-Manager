@@ -11,6 +11,12 @@ class Error {
 	 */
 	public static function exception($exception, $trace = true)
 	{
+		// FIX pour OVH
+		// Ignorer les magic quotes
+		if ( $exception->getFile() == "Unknown" and  $exception->getLine() == 0 )
+		{
+		    exit(1);
+		}
 		static::log($exception);
 
 		ob_get_level() and ob_end_clean();

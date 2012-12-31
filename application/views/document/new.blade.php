@@ -6,17 +6,10 @@ Select Category | Alys Doc Manager
 @section('content')
 <div class="row-fluid">
 	<div class="span12">
-		<ul class="breadcrumb">
-			<li><a href="{{ URL::to_route('homepage');}}">Home</a> <span class="divider">/</span></li>
-			<li><a href="{{ URL::to_route('docIndex'); }}">Library</a> <span class="divider">/</span></li>
-			<li class="active">Select Category</li>
-		</ul>
-		{{ Form::open( 'library/new', '', array('class' => 'form-horizontal') ) }}
+		{{ Form::open( 'library/new', '', array('class' => 'form-inline') ) }}
 			<div class="control-group">
-				{{ Form::label('category', 'Select category: ', array('class' => 'control-label') );}}
 				<div class="controls">
-					{{ Form::select('category',  $categories, ( isset( $current_cat ) ) ? $current_cat : '');}}
-					{{ Form::submit('Select', array('class' => 'btn') );}}
+					{{ Form::select('category',  $categories, ( isset( $current_cat ) ) ? $current_cat : '', array('id' => 'categorySelect') );}}
 				</div>
 			</div>
 		{{ Form::close() }}

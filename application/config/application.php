@@ -1,7 +1,8 @@
 <?php
 // A MODIFIER
 //
-define('SITE_PATH', 'http://' . $_SERVER['HTTP_HOST'] . '/adminnico_modern/doc_manager/');
+define('SITE_PATH', 'http://' . $_SERVER['HTTP_HOST'] . '/adminnico_modern/doc_manager');
+define('UPLOAD_PATH', 'http://' . $_SERVER['HTTP_HOST'] . '/adminnico_modern/doc_manager/public/library/');
 
 
 return array(
@@ -71,7 +72,7 @@ return array(
 	|
 	*/
 
-	'profiler' => true,
+	'profiler' => false,
 
 	/*
 	|--------------------------------------------------------------------------

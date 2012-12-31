@@ -6,6 +6,7 @@
 		<title>@yield('title')</title>
 		<meta name="viewport" content="width=device-width">
 		{{ Asset::styles() }}
+		<script src="<?php echo URL::to_asset('js/jquery.js') ?>"></script>
 	</head>
 	<body>
 		<div class="navbar navbar-inverse">
@@ -21,7 +22,6 @@
 						<ul class="nav">
 							<li><a href="{{ URL::to_route('homepage');}}"><i class="icon-home icon-white"></i> Home</a></li>
 							<li class="divider-vertical"></li>
-							<li><a href="{{ URL::to_route('docIndex'); }}"><i class="icon-home icon-white"></i> Library</a></li>
 					</div>
 					<!--/.nav-collapse -->
 				</div>
@@ -31,10 +31,34 @@
 		</div>
 		<!--/.navbar -->
 		<div class="container">
+			@if ( Session::has('successMsg') )
+				<script type="text/javascript">
+					$(document).ready( function() {
+						alertSuccess( "<?php echo Session::get('successMsg'); ?>" )
+					});
+				</script>
+			@endif
+			@if ( Session::has('errorMsg') )
+				<script type="text/javascript">
+					$(document).ready( function() {
+						alertError( "<?php echo Session::get('errorMsg'); ?>" )
+					});
+				</script>
+			@endif
 			@yield('content')
 		</div> <!-- /container -->
 	{{ Asset::scripts() }}
 	<script type="text/javascript">
+		$("a[rel=popover]")
+			.popover({
+				placement : 'left'
+			})
+			.click(function(e) {
+				e.preventDefault()
+			})
+		$('.container').tooltip({
+			selector: "a[rel=tooltip]"
+		})
 		function alertSuccess( text )
 		{
 			alertify.success( text );
@@ -59,6 +83,11 @@
 				  }
 			 });
 		}
+		$('#categorySelect').bind("change keyup",function()
+		{
+		  var appPath = "<?php echo UPLOAD_PATH; ?>";
+		  window.location = appPath + $(this).val() + '/edit';
+		});
 	</script>
 
 	<!-- Extra page specific JS Scripts -->

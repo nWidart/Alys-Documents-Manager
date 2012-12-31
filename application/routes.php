@@ -2,11 +2,11 @@
 
 Route::get('/', array(
 	'as' => 'homepage',
-	'uses' => 'home@index'
+	'uses' => 'documents@new'
 ));
 Route::get('library', array(
 	'as' => 'docIndex',
-	'uses' => 'documents@index'
+	'uses' => 'documents@new'
 ));
 Route::get('library/new', array(
 	'as' => 'new_doc',
@@ -18,7 +18,7 @@ Route::get('library/(:num)/edit', array(
 	'as' => 'edit_doc',
 	'uses' => 'documents@edit'
 ) );
-Route::get('library/(:num)/edit/(:num)', array(
+Route::get('library/(:num)/edit/(:num)/(:num?)', array(
 	'as' => 'edit_doc_info',
 	'uses' => 'documents@edit_doc'
 ) );
